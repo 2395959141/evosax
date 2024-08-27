@@ -37,7 +37,7 @@ class FitnessShaper(object):
     def apply(self, x: chex.Array, fitness: chex.Array) -> chex.Array:
         """Max objective trafo, rank shaping, z scoring & add weight decay."""
         if self.maximize:
-            fitness = -1 * fitness
+            fitness = -1 * fitness  #最大化适应度
 
         # Apply wdecay before normalization - makes easier to tune
         # "Reduce" fitness based on L2 norm of parameters

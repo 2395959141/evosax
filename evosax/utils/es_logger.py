@@ -158,4 +158,7 @@ class ESLog(object):
         ax.set_ylabel("Fitness Score")
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
-        return fig, ax
+        
+        # plt.show()
+
+        return fig, ax 

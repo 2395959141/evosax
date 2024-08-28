@@ -52,7 +52,7 @@ class SolutionFeaturizer(object):
                 f"[{self.norm_diff_best}] Normalized difference to best  -> (x - x_best) in [-0.5, 0.5]"
             )
 
-    @functools.partial(jax.jit, static_argnums=0)
+    @functools.partial(jax.jit, static_argnums=0) #固定 jax.jit 的 static_argnums 参数为 0，这意味着 self 参数在编译时是已知的，从而可以进行优化
     def initialize(self):
         return SolutionFeaturesState(
             best_fitness=jnp.finfo(jnp.float32).max,

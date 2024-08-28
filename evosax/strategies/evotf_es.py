@@ -12,9 +12,10 @@ from ..learned_eo.evotf_tools import (
     FitnessFeaturizer,
     DistributionFeaturizer,
 )
-
-
-@struct.dataclass
+   #用于将一个普通的Python类转换为Flax数据类
+   #Flax数据类是一种特殊的数据结构，可以安全地用于JAX的函数变换（如jax.jit和jax.grad）
+   # 因为它们是可变的，并且可以映射到JAX的树形操作
+@struct.dataclass 
 class DistributionFeaturesState:
     old_mean: chex.Array
     old_sigma: chex.Array
